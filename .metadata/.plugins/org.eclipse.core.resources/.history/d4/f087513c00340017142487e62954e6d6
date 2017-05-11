@@ -1,0 +1,13 @@
+/**
+ * 
+ * @author Michelle Li
+ * Period 1
+ * Class MediumAI - medium difficulty AI 
+ *
+ */
+
+public class MediumAI implements AI {
+
+	
+	
+}
