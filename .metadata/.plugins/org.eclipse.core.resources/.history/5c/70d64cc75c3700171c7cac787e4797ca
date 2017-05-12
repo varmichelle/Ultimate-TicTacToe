@@ -195,7 +195,7 @@ public class UltimateTTTGame {
 	}
 	
 	public int[] printBoard(int[] previousMove) {
-		System.out.println("New board state: \n");
+		System.out.println("New board state: ");
 		System.out.println(theBoard.toString());
 		if (previousMove[0] == -1) return previousMove;
 		if (checkWinnerSquare(xPlayer, previousMove[0], previousMove[1])) {

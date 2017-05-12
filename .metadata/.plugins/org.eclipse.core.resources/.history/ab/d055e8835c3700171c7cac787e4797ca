@@ -36,6 +36,7 @@ public class UltimateTTTGame {
 	public void playGame() {
 		printInstructions();
 		int[] moveRestrictions = {-1,-1,-1,-1};
+		System.out.println("Initial board: ");
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
 			if (checkTie()) {
@@ -63,7 +64,7 @@ public class UltimateTTTGame {
 	}
 
 	private void printInstructions() {
-		System.out.println("\n\n==========================================================================================================================================================");
+		System.out.println("\n\n\n\n==========================================================================================================================================");
 		System.out.println("Welcome to Ultimate Tic Tac Toe!");
 		System.out.println("Rules: ");
 		System.out.println("X always goes first, and players will alternate making moves on the board.");
@@ -71,7 +72,7 @@ public class UltimateTTTGame {
 		System.out.println("For example, if Player X moves in the center cell of the top left grid, the next player must move in the center grid.");
 		System.out.println("Exceptions to this rule occur if a grid is completely filled, or if the grid has already been won. In these cases, the player may move in any other grid.");
 		System.out.println("The game ends when a player has won 3 small boards in a row.");
-		System.out.println("==========================================================================================================================================================\n\n");
+		System.out.println("==========================================================================================================================================");
 	}
 
 	private boolean checkTie() {
@@ -195,7 +196,7 @@ public class UltimateTTTGame {
 	}
 	
 	public int[] printBoard(int[] previousMove) {
-		System.out.println("New board state: \n");
+		System.out.println("New board state: ");
 		System.out.println(theBoard.toString());
 		if (previousMove[0] == -1) return previousMove;
 		if (checkWinnerSquare(xPlayer, previousMove[0], previousMove[1])) {
