@@ -2,7 +2,7 @@ import java.util.*;
 
 /**
  * 
- * @author yugreta3411
+ * @author yugreta3411, Michelle Li
  * @period 1
  * 
  *         EasyAI class - Class that creates a EasyAI player object This player
@@ -31,15 +31,27 @@ public class EasyAI extends Player {
 	/**
 	 * Method that has the computer make a random valid move
 	 */
-	public void makeAMove() {
+	public int[] makeAMove(int[] lastMove) {
 		Random number = new Random();
-		int outerR, outerC, innerR, innerC;
-		do {
-			outerR = number.nextInt(3);
-			outerC = number.nextInt(3);
-			innerR = number.nextInt(3);
-			innerC = number.nextInt(3);
-		} while (!checkValidity(board, outerR, outerC, innerR, innerC));
+		int outerR = 0, outerC = 0, innerR = 0, innerC = 0;
+		if (lastMove[2] == -1 || lastMove[3] == -1) {
+			do {
+				outerR = number.nextInt(3);
+				outerC = number.nextInt(3);
+				innerR = number.nextInt(3);
+				innerC = number.nextInt(3);
+			} while (!checkValidity(board, outerR, outerC, innerR, innerC));
+		} else {
+			do {
+				outerR = lastMove[2];
+				outerC = lastMove[3];
+				innerR = number.nextInt(3);
+				innerC = number.nextInt(3);
+			} while (!checkValidity(board, outerR, outerC, innerR, innerC));
+		}
 		board.setPieceAt(outerR, outerC, innerR, innerC, thisPlayersPiece);
+		int[] move = {outerR, outerC, innerR, innerC};
+		return move;
 	}
+
 }

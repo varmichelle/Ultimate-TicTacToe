@@ -29,12 +29,14 @@ public class HumanPlayer extends Player {
 	 * version for human player)
 	 * 
 	 */
-	public void makeAMove() {
+	public int[] makeAMove(int[] moveRestrictions) {
 		input = new Scanner(System.in);
 		int outsideR = input.nextInt();
 		int outsideC = input.nextInt();
 		int insideR = input.nextInt();
 		int insideC = input.nextInt();
 		board.setPieceAt(outsideR, outsideC, insideR, insideC, thisPlayersPiece);
+		int[] move = {outsideR, outsideC, insideR, insideC};
+		return move;
 	}
 }

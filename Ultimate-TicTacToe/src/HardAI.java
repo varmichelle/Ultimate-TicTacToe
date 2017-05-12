@@ -21,7 +21,7 @@ public class HardAI extends Player {
 		super(b, p);
 	}
 
-	public void makeAMove() {
+	public int[] makeAMove(int[] moveRestrictions) {
 
 	}
 

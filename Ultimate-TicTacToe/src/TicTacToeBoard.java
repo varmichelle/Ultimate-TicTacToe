@@ -2,11 +2,13 @@
  * TicTacToeBoard class-Class that creates a 3x3 tic tac toe board The class
  * contains methods to set and get a certain square on the board
  * 
- * @author yugreta3411, Michelle Li period 1
+ * @author yugreta3411, Michelle Li 
+ * period 1
  */
 public class TicTacToeBoard {
 
 	private GamePiece[][] board;
+	private String winner = "_";
 
 	/**
 	 * TicTacToeboard constructor-Constructor that initializes board to a 3x3
@@ -56,6 +58,14 @@ public class TicTacToeBoard {
 	
 	public String getRow(int row) {
 		return board[row][0].getXorO() + " " + board[row][1].getXorO() + " " + board[row][2].getXorO();
+	}
+	
+	public String getWinner() {
+		return winner;
+	}
+	
+	public void setWinner(String s) {
+		winner = s;
 	}
 
 }

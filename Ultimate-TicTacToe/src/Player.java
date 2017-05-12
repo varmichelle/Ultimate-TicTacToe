@@ -1,6 +1,6 @@
 /**
  * 
- * @author Maya Mistry, Greta Yu
+ * @author Maya Mistry, Greta Yu, Michelle Li
  * @period 1
  * 
  *         This abstract class represents the players of our Ultimate Tic-Tac
@@ -32,8 +32,9 @@ public abstract class Player {
 	/**
 	 * This abstract void method allows a human player or an AI to make a move
 	 * based off of whether or not it is valid to make a move.
+	 * @param moveRestrictions 
 	 */
-	public abstract void makeAMove();
+	public abstract int[] makeAMove(int[] moveRestrictions);
 
 	/**
 	 * Boolean method to check if a player is allowed to make a move.
@@ -42,9 +43,10 @@ public abstract class Player {
 	 *         board and false if there are no spaces available.
 	 */
 	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow, int bigCol, int innerRow, int innerCol) {
-		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol).getXorO().equals("_")) {
+		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol).getXorO().equals("_") && board.getTTTBoard(bigRow, bigCol).getWinner() == "_") {
 			return true;
 		}
 		return false;
 	}
+	
 }

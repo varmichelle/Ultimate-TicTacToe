@@ -3,7 +3,8 @@
  * each square is a tic tac toe board The class contains methods to set and get
  * a certain square on the board
  * 
- * @author yugreta3411 period 1
+ * @author yugreta3411, Michelle Li
+ * period 1
  */
 public class UltimateTicTacToeBoard {
 

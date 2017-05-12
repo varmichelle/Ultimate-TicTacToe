@@ -1,0 +1,161 @@
+/**
+ * 
+ * @author Adrienne Ly
+ * @period 1
+ *
+ */
+/**
+ * UltimateTTTGame class simulates the game of Ultimate TicTacToe.
+ */
+public class UltimateTTTGame {
+	
+	private UltimateTicTacToeBoard theBoard;
+	private Player xPlayer;
+	private Player oPlayer;
+
+	/**
+	 * Constructor to initialize board and two players
+	 * 
+	 * @param board
+	 *            - an ultimate tictactoe board
+	 * @param xP
+	 *            - first player
+	 * @param oP
+	 *            - second player
+	 */
+	public UltimateTTTGame(UltimateTicTacToeBoard board, Player xP, Player oP) {
+		theBoard = board;
+		xPlayer = xP;
+		oPlayer = oP;
+	}
+
+	/**
+	 * playGame method simulates a round of the game
+	 * 
+	 */
+	public void playGame() {
+		int[] moveRestrictions = {-1,-1};
+		System.out.println("Initial board: ");
+		printBoard();
+		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
+			facilitateMove(true, moveRestrictions);
+			printBoard();
+			if (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
+				facilitateMove(false, moveRestrictions);
+				printBoard();
+			}
+		}
+
+		if (checkWinner(xPlayer) && checkWinner(oPlayer)) {
+			System.out.println("It's a tie!");
+		} else if (checkWinner(xPlayer)) {
+			System.out.println("Player X won!");
+		} else {
+			System.out.println("Player O won!");
+		}
+
+	}
+
+	public int[] facilitateMove(boolean x, int[] moveRestrictions) {
+		String player = "";
+		if (x) player = "X";
+		else player = "O";
+		String[] r = {"upper", "middle", "lower"};
+		String[] c = {"left", "middle", "right"};
+		if (moveRestrictions[0] == -1 || moveRestrictions[1] == -1) {
+			System.out.println(player + " player, make a move anywhere on the grid.");
+		} else if (moveRestrictions[0] == 1 && moveRestrictions[1] == 1) {
+			System.out.println(player + " player, make a move in the center board.");
+		} else {
+			System.out.println(player + " player, make a move in the " + r[moveRestrictions[0]] + " " + c[moveRestrictions[1]] + " grid.");
+		}
+		if (x) xPlayer.makeAMove(moveRestrictions);
+		else oPlayer.makeAMove(moveRestrictions);
+	}
+
+	/**
+	 * checkWinner method checks if a player won the ultimate tictactoe game
+	 * 
+	 * @param p
+	 *            - player who is being checked
+	 * @return true if entered player won, false if entered player did not win
+	 * 
+	 */
+	public boolean checkWinner(Player p) {
+		// checking each row of big squares
+		for (int rSquare = 0; rSquare < 3; rSquare++) {
+			if ((checkWinnerSquare(p, rSquare, 0) && checkWinnerSquare(p, rSquare, 1)
+					&& checkWinnerSquare(p, rSquare, 2))) {
+				return true;
+			}
+		}
+		// checking each column of big squares
+		for (int cSquare = 0; cSquare < 3; cSquare++) {
+			if ((checkWinnerSquare(p, 0, cSquare) && checkWinnerSquare(p, 1, cSquare)
+					&& checkWinnerSquare(p, 2, cSquare))) {
+				return true;
+			}
+		}
+
+		// check diagonals of big squares
+		if ((checkWinnerSquare(p, 0, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 2, 2))
+				|| (checkWinnerSquare(p, 2, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 0, 2))) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * checkWinnerSquare method checks if a player won an inner tictactoe square
+	 * 
+	 * @param p
+	 *            - player who is being checked
+	 * @param rStart
+	 *            - row of large square
+	 * @param cStart
+	 *            - column of large square
+	 * @return true if entered player won, false if entered player did not win
+	 * 
+	 */
+
+	public boolean checkWinnerSquare(Player p, int rStart, int cStart) {
+
+		// check each row of small square
+		for (int rIn = 0; rIn < 3; rIn++) {
+			if (theBoard.getPieceAt(rStart, cStart, rIn, 0).getXorO().equals(p.thisPlayersPiece.getXorO())
+					&& theBoard.getPieceAt(rStart, cStart, rIn, 1).getXorO().equals(p.thisPlayersPiece.getXorO())
+					&& theBoard.getPieceAt(rStart, cStart, rIn, 2).getXorO().equals(p.thisPlayersPiece.getXorO())) {
+				return true;
+			}
+
+		}
+
+		// check each column of small square
+		for (int cIn = 0; cIn < 3; cIn++) {
+			if (theBoard.getPieceAt(rStart, cStart, 0, cIn).getXorO().equals(p.thisPlayersPiece.getXorO())
+					&& theBoard.getPieceAt(rStart, cStart, 1, cIn).getXorO().equals(p.thisPlayersPiece.getXorO())
+					&& theBoard.getPieceAt(rStart, cStart, 2, cIn).getXorO().equals(p.thisPlayersPiece.getXorO())) {
+				return true;
+			}
+
+		}
+
+		// check diagonals of small square
+		if ((theBoard.getPieceAt(rStart, cStart, 0, 0).getXorO().equals(p.thisPlayersPiece.getXorO())
+				&& theBoard.getPieceAt(rStart, cStart, 1, 1).getXorO().equals(p.thisPlayersPiece.getXorO())
+				&& theBoard.getPieceAt(rStart, cStart, 2, 2).getXorO().equals(p.thisPlayersPiece.getXorO()))
+				|| (theBoard.getPieceAt(rStart, cStart, 2, 0).getXorO().equals(p.thisPlayersPiece.getXorO())
+						&& theBoard.getPieceAt(rStart, cStart, 1, 1).getXorO().equals(p.thisPlayersPiece.getXorO())
+						&& theBoard.getPieceAt(rStart, cStart, 0, 2).getXorO().equals(p.thisPlayersPiece.getXorO()))) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	public void printBoard() {
+		System.out.println(theBoard.toString());
+	}
+
+}
