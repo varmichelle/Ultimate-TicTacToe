@@ -9,8 +9,9 @@
  * 
  */
 public abstract class Player {
-	protected boolean isValid = false; // there is an empty space for a player to
-										// make another move
+
+	protected boolean isValid = false; // there is an empty space for a player
+										// to make another move
 	protected UltimateTicTacToeBoard board;
 	protected GamePiece thisPlayersPiece;
 
@@ -40,9 +41,8 @@ public abstract class Player {
 	 * @return isValid - true if there is an empty space available on the game
 	 *         board and false if there are no spaces available.
 	 */
-	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow,
-			int bigCol, int innerRow, int innerCol) {
-		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol) == null) {
+	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow, int bigCol, int innerRow, int innerCol) {
+		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol).getXorO().equals("_")) {
 			return true;
 		}
 		return false;

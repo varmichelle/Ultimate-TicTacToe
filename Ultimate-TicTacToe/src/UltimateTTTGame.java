@@ -4,38 +4,62 @@
  * @period 1
  *
  */
-
 /**
  * UltimateTTTGame class simulates the game of Ultimate TicTacToe.
  */
-
 public class UltimateTTTGame {
 	private UltimateTicTacToeBoard theBoard;
 	private Player xPlayer;
 	private Player oPlayer;
 
+	/**
+	 * Constructor to initialize board and two players
+	 * 
+	 * @param board
+	 *            - an ultimate tictactoe board
+	 * @param xP
+	 *            - first player
+	 * @param oP
+	 *            - second player
+	 */
 	public UltimateTTTGame(UltimateTicTacToeBoard board, Player xP, Player oP) {
 		theBoard = board;
 		xPlayer = xP;
 		oPlayer = oP;
 	}
 
+	/**
+	 * playGame method simulates a round of the game
+	 * 
+	 */
 	public void playGame() {
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
 			xPlayer.makeAMove();
+			printBoard();
 			if (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
 				oPlayer.makeAMove();
+				printBoard();
 			}
 		}
 
-		if (checkWinner(xPlayer)) {
-			System.out.println("You won, Player X!");
+		if (checkWinner(xPlayer) && checkWinner(oPlayer)) {
+			System.out.println("It's a tie!");
+		} else if (checkWinner(xPlayer)) {
+			System.out.println("Player X won!");
 		} else {
-			System.out.println("You won, Player 0!");
+			System.out.println("Player O won!");
 		}
 
 	}
 
+	/**
+	 * checkWinner method checks if a player won the ultimate tictactoe game
+	 * 
+	 * @param p
+	 *            - player who is being checked
+	 * @return true if entered player won, false if entered player did not win
+	 * 
+	 */
 	public boolean checkWinner(Player p) {
 		// checking each row of big squares
 		for (int rSquare = 0; rSquare < 3; rSquare++) {
@@ -60,6 +84,19 @@ public class UltimateTTTGame {
 
 		return false;
 	}
+
+	/**
+	 * checkWinnerSquare method checks if a player won an inner tictactoe square
+	 * 
+	 * @param p
+	 *            - player who is being checked
+	 * @param rStart
+	 *            - row of large square
+	 * @param cStart
+	 *            - column of large square
+	 * @return true if entered player won, false if entered player did not win
+	 * 
+	 */
 
 	public boolean checkWinnerSquare(Player p, int rStart, int cStart) {
 
@@ -94,6 +131,10 @@ public class UltimateTTTGame {
 		}
 
 		return false;
+	}
+	
+	public void printBoard() {
+		System.out.println(theBoard.toString());
 	}
 
 }

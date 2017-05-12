@@ -7,6 +7,7 @@ import java.util.Scanner;
  * 
  */
 public class HumanPlayer extends Player {
+	
 	protected Scanner input;
 
 	/**
@@ -34,7 +35,6 @@ public class HumanPlayer extends Player {
 		int outsideC = input.nextInt();
 		int insideR = input.nextInt();
 		int insideC = input.nextInt();
-		board.setPieceAt(outsideR, outsideC, insideR, insideC,
-						thisPlayersPiece);
+		board.setPieceAt(outsideR, outsideC, insideR, insideC, thisPlayersPiece);
 	}
 }
