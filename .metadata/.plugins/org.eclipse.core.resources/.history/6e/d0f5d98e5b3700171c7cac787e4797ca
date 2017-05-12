@@ -187,17 +187,17 @@ public class UltimateTTTGame {
 		System.out.println(theBoard.toString());
 		if (previousMove[0] == -1) return previousMove;
 		if (checkWinnerSquare(xPlayer, previousMove[0], previousMove[1])) {
-			System.out.println("X player won the " + boardName(previousMove[0], previousMove[1]) + "\n\n");
+			System.out.println("X player won the " + boardName(previousMove) + "\n\n");
 			theBoard.getTTTBoard(previousMove[0], previousMove[1]).setWinner("X");
 			int[] moves = {-1,-1,-1,-1};
 			return moves;
 		} else if (checkWinnerSquare(oPlayer, previousMove[0], previousMove[1])) {
-			System.out.println("O player won the " + boardName(previousMove[0], previousMove[1]) + "\n\n");
+			System.out.println("O player won the " + boardName(previousMove) + "\n\n");
 			theBoard.getTTTBoard(previousMove[0], previousMove[1]).setWinner("O");
 			int[] moves = {-1,-1,-1,-1};
 			return moves;
 		} else if (boardFilled(previousMove[0], previousMove[1])) {
-			System.out.println("The " + boardName(previousMove[0], previousMove[1]) + " has been filled.\n\n");
+			System.out.println("The " + boardName(previousMove) + " has been filled.\n\n");
 			theBoard.getTTTBoard(previousMove[0], previousMove[1]).setWinner("F");
 			int[] moves = {-1,-1,-1,-1};
 			return moves;

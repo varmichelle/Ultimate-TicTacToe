@@ -80,7 +80,7 @@ public class UltimateTicTacToeBoard {
 	}
 	
 	public String toString() {
-		String s = "    0 1 2   3 4 5   6 7 8\n\n";
+		String s = "    0 1 2   3 4 5   6 7 8\n";
 		for (int r = 0; r < 9; r++) {
 			s += r + "   " + getLine(r);
 			if (r % 3 == 2 && r != 8) s += "    ---------------------\n";
