@@ -33,11 +33,11 @@ public abstract class Player {
 	
 	/**
 	 * Boolean method to check if a player is allowed to make a move.
-	 * @param board - Ultiamte TTT board
-	 * @param bigRow - row of TTT board
-	 * @param bigCol - row of TTT board
-	 * @param innerRow - row of game piece in TTT board
-	 * @param innerCol - col of game piece in TTT board
+	 * @param board
+	 * @param bigRow
+	 * @param bigCol
+	 * @param innerRow
+	 * @param innerCol
 	 * @return isValid - if the move is valid (empty space and board not yet won)
 	 */
 	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow, int bigCol, int innerRow, int innerCol) {

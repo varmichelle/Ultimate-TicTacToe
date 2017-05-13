@@ -30,15 +30,10 @@ public abstract class Player {
 	 * @return int[] of parameters of the move just made
 	 */
 	public abstract int[] makeAMove(int[] moveRestrictions);
-	
+
 	/**
 	 * Boolean method to check if a player is allowed to make a move.
-	 * @param board - Ultiamte TTT board
-	 * @param bigRow - row of TTT board
-	 * @param bigCol - row of TTT board
-	 * @param innerRow - row of game piece in TTT board
-	 * @param innerCol - col of game piece in TTT board
-	 * @return isValid - if the move is valid (empty space and board not yet won)
+	 * @return isValid - if the move is valid (empty space, board not yet won)
 	 */
 	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow, int bigCol, int innerRow, int innerCol) {
 		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol).getXorO().equals("_") && board.getTTTBoard(bigRow, bigCol).getWinner() == "_") {

@@ -25,20 +25,18 @@ public abstract class Player {
 	}
 
 	/**
-	 * Player makes a move on the board (must be valid)
-	 * @param moveRestrictions - parameters of previous move
+	 * This abstract method allows a human player or an AI to make a move
+	 * based off of whether or not it is valid to make a move.
+	 * @param moveRestrictions 
 	 * @return int[] of parameters of the move just made
 	 */
 	public abstract int[] makeAMove(int[] moveRestrictions);
-	
+
 	/**
 	 * Boolean method to check if a player is allowed to make a move.
-	 * @param board - Ultiamte TTT board
-	 * @param bigRow - row of TTT board
-	 * @param bigCol - row of TTT board
-	 * @param innerRow - row of game piece in TTT board
-	 * @param innerCol - col of game piece in TTT board
-	 * @return isValid - if the move is valid (empty space and board not yet won)
+	 * 
+	 * @return isValid - true if there is an empty space available on the game
+	 *         board and false if there are no spaces available.
 	 */
 	public boolean checkValidity(UltimateTicTacToeBoard board, int bigRow, int bigCol, int innerRow, int innerCol) {
 		if (board.getPieceAt(bigRow, bigCol, innerRow, innerCol).getXorO().equals("_") && board.getTTTBoard(bigRow, bigCol).getWinner() == "_") {
