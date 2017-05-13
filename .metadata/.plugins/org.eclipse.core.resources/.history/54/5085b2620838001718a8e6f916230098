@@ -1,10 +1,13 @@
 import java.util.*;
 
 /**
- * Class EasyAI extends Player superclass 
- * AI that makes random valid moves
+ * 
  * @author yugreta3411, Michelle Li
  * @period 1
+ * 
+ *         EasyAI class - Class that creates a EasyAI player object This player
+ *         object makes a move (placing a game piece on the board) randomly with
+ *         no strategy
  * 
  */
 

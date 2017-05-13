@@ -4,7 +4,6 @@
  * Period 1
  *
  */
-
 public class GamePiece {
 
 	private String XorO;

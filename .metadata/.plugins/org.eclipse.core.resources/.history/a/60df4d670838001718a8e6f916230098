@@ -2,7 +2,6 @@ import java.util.*;
 
 /**
  * Class EasyAI extends Player superclass 
- * AI that makes random valid moves
  * @author yugreta3411, Michelle Li
  * @period 1
  * 
