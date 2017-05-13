@@ -17,17 +17,17 @@ public class EasyAI extends Player {
 	 * EasyAI constructor - Constructor that uses the super constructor to
 	 * initialize the board and game piece
 	 * 
-	 * @param b - ultimate tic tac toe board
-	 * @param p - the player's game piece
+	 * @param b
+	 *            the UltimateTicTacToeBoard the player will be playing on
+	 * @param p
+	 *            the player's game piece
 	 */
 	public EasyAI(UltimateTicTacToeBoard b, GamePiece p) {
 		super(b, p);
 	}
 
 	/**
-	 * Make a random valid move
-	 * @param lastMove - integer array of outerR, outerC, innerR, innerC of previous move
-	 * @return move - integer array of outerR, outerC, innerR, innerC of move
+	 * Method that has the computer make a random valid move
 	 */
 	public int[] makeAMove(int[] lastMove) {
 		Random number = new Random();

@@ -26,8 +26,7 @@ public class EasyAI extends Player {
 
 	/**
 	 * Make a random valid move
-	 * @param lastMove - integer array of outerR, outerC, innerR, innerC of previous move
-	 * @return move - integer array of outerR, outerC, innerR, innerC of move
+	 * 
 	 */
 	public int[] makeAMove(int[] lastMove) {
 		Random number = new Random();
