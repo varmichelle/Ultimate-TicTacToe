@@ -35,14 +35,14 @@ public class UltimateTTTGame {
 		int[] moveRestrictions = {-1,-1,-1,-1};
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
-			if (checkTie()) {
+			if (checkFull()) {
 				System.out.println("It was a tie!");
 				return;
 			}
 			moveRestrictions = facilitateMove(true, moveRestrictions);
 			moveRestrictions = printBoard(moveRestrictions);
 			if (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
-				if (checkTie()) {
+				if (checkFull()) {
 					System.out.println("It was a tie!");
 					return;
 				}
@@ -75,10 +75,11 @@ public class UltimateTTTGame {
 	}
 
 	/**
-	 * Check for ties if it is guaranteed there is no winner
-	 * @return boolean if tie or not
+	 * Check if the board is completely full 
+	 * Can be used to check for ties if it is guaranteed there is no winner
+	 * @return boolean if board is full or not
 	 */
-	private boolean checkTie() {
+	private boolean checkFull() {
 		Iterator boardIter = theBoard.iterator();
 		while (boardIter.hasNext()) {
 			for (int r = 0; r < 3; r++) {

@@ -76,7 +76,7 @@ public class UltimateTTTGame {
 
 	/**
 	 * Check for ties if it is guaranteed there is no winner
-	 * @return boolean if tie or not
+	 * @return boolean if board is full or not
 	 */
 	private boolean checkTie() {
 		Iterator boardIter = theBoard.iterator();
