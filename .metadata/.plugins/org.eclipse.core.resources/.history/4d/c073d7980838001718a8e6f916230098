@@ -33,5 +33,13 @@ public class GamePiece {
 	public String getXorO() {
 		return XorO;
 	}
+	
+	/**
+	 * toString method
+	 * @return XorO
+	 */
+	public String toString() {
+		return XorO;
+	}
 
 }

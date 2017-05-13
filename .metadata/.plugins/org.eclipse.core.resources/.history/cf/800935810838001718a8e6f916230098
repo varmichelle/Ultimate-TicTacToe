@@ -11,8 +11,10 @@ public class GamePiece {
 	private String XorO;
 
 	/**
-	 * Constructor to initialize XorO variable
-	 * @param exoh - X or O
+	 * constructor to pass in values for the two variables
+	 * 
+	 * @param exoh
+	 *            - either X or O
 	 */
 	public GamePiece(String exoh) {
 		XorO = exoh;
@@ -20,7 +22,9 @@ public class GamePiece {
 
 	/**
 	 * setter method to set the value of the game piece
-	 * @param exoh - either X or O
+	 * 
+	 * @param exoh
+	 *            - either X or O
 	 */
 	public void setXorO(String exoh) {
 		XorO = exoh;
@@ -28,9 +32,17 @@ public class GamePiece {
 
 	/**
 	 * getter method to return either X or O
-	 * @return XorO - either X or O
+	 * 
+	 * @return
 	 */
 	public String getXorO() {
+		return XorO;
+	}
+	
+	/**
+	 * toString method
+	 */
+	public String toString() {
 		return XorO;
 	}
 

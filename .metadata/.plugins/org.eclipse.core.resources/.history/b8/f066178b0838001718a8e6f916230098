@@ -28,9 +28,17 @@ public class GamePiece {
 
 	/**
 	 * getter method to return either X or O
-	 * @return XorO - either X or O
+	 * 
+	 * @return
 	 */
 	public String getXorO() {
+		return XorO;
+	}
+	
+	/**
+	 * toString method
+	 */
+	public String toString() {
 		return XorO;
 	}
 
