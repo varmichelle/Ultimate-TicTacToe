@@ -1,7 +1,6 @@
 /**
  * Class GameRunner - driver program to run the game
- * @author Adrienne Ly, Michelle Li, Somya Bhatia
- * Period 1
+ * 
  */
 
 import java.util.Scanner;
