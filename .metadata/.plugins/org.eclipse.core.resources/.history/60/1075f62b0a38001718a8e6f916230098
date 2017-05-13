@@ -68,8 +68,7 @@ public class UltimateTicTacToeBoard implements Iterable {
 	}
 	
 	/**
-	 * toString method to return data of the board in string format
-	 * return s - data of board in string form
+	 * 
 	 */
 	public String toString() {
 		String s = "    0 1 2   3 4 5   6 7 8\n\n";
@@ -81,30 +80,17 @@ public class UltimateTicTacToeBoard implements Iterable {
 		return s;
 	}
 	
-	/**
-	 * Iterator method
-	 * Defines hasNext() and next() so the board can be used as an iterator
-	 * @return iter
-	 */
 	@Override
     public Iterator<TicTacToeBoard> iterator() {
         Iterator<TicTacToeBoard> iter = new Iterator<TicTacToeBoard>() {
 
             private int currentIndex = 0;
 
-            /**
-             * Defines hasNext() method of the board iterator
-             * @return if the UTTT board has another tic tac toe board
-             */
             @Override
             public boolean hasNext() {
                 return currentIndex < 9;
             }
 
-            /**
-             * Defines next() method of the board iterator
-             * @return the next tic tac toe board
-             */
             @Override
             public TicTacToeBoard next() {
                 return board[currentIndex / 3][currentIndex++ % 3];

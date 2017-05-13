@@ -82,9 +82,7 @@ public class UltimateTicTacToeBoard implements Iterable {
 	}
 	
 	/**
-	 * Iterator method
-	 * Defines hasNext() and next() so the board can be used as an iterator
-	 * @return iter
+	 * 
 	 */
 	@Override
     public Iterator<TicTacToeBoard> iterator() {
@@ -92,19 +90,11 @@ public class UltimateTicTacToeBoard implements Iterable {
 
             private int currentIndex = 0;
 
-            /**
-             * Defines hasNext() method of the board iterator
-             * @return if the UTTT board has another tic tac toe board
-             */
             @Override
             public boolean hasNext() {
                 return currentIndex < 9;
             }
 
-            /**
-             * Defines next() method of the board iterator
-             * @return the next tic tac toe board
-             */
             @Override
             public TicTacToeBoard next() {
                 return board[currentIndex / 3][currentIndex++ % 3];

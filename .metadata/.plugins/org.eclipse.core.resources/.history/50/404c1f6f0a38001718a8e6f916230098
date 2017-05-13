@@ -102,8 +102,7 @@ public class UltimateTicTacToeBoard implements Iterable {
             }
 
             /**
-             * Defines next() method of the board iterator
-             * @return the next tic tac toe board
+             * 
              */
             @Override
             public TicTacToeBoard next() {
