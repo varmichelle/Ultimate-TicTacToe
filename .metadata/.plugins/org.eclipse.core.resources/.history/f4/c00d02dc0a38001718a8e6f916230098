@@ -30,8 +30,6 @@ public class UltimateTTTGame {
 	 */
 	public void playGame() {
 		printInstructions();
-		// NOTE: {-1,-1,-1,-1} MEANS THE PLAYER CAN MOVE ANYWHERE
-		// This happens on the first turn or if the inner board had already been won or filled
 		int[] moveRestrictions = {-1,-1,-1,-1};
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
@@ -134,11 +132,13 @@ public class UltimateTTTGame {
 
 	/**
 	 * Checks if a player won the ultimate tictactoe game
-	 * @param p - player who is being checked
+	 * 
+	 * @param p
+	 *            - player who is being checked
 	 * @return true if entered player won, false if entered player did not win
 	 * 
 	 */
-	private boolean checkWinner(Player p) {
+	public boolean checkWinner(Player p) {
 		// checking each row of big squares
 		for (int rSquare = 0; rSquare < 3; rSquare++) {
 			if ((checkWinnerSquare(p, rSquare, 0) && checkWinnerSquare(p, rSquare, 1)
@@ -153,22 +153,31 @@ public class UltimateTTTGame {
 				return true;
 			}
 		}
+
 		// check diagonals of big squares
 		if ((checkWinnerSquare(p, 0, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 2, 2))
 				|| (checkWinnerSquare(p, 2, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 0, 2))) {
 			return true;
 		}
+
 		return false;
 	}
 
 	/**
-	 * Checks if a player won an inner tictactoe board
-	 * @param p - player who is being checked
-	 * @param rStart - row of large square
-	 * @param cStart - column of large square
+	 * checkWinnerSquare method checks if a player won an inner tictactoe square
+	 * 
+	 * @param p
+	 *            - player who is being checked
+	 * @param rStart
+	 *            - row of large square
+	 * @param cStart
+	 *            - column of large square
 	 * @return true if entered player won, false if entered player did not win
+	 * 
 	 */
-	private boolean checkWinnerSquare(Player p, int rStart, int cStart) {
+
+	public boolean checkWinnerSquare(Player p, int rStart, int cStart) {
+
 		// check each row of small square
 		for (int rIn = 0; rIn < 3; rIn++) {
 			if (theBoard.getPieceAt(rStart, cStart, rIn, 0).getXorO().equals(p.thisPlayersPiece.getXorO())
@@ -178,6 +187,7 @@ public class UltimateTTTGame {
 			}
 
 		}
+
 		// check each column of small square
 		for (int cIn = 0; cIn < 3; cIn++) {
 			if (theBoard.getPieceAt(rStart, cStart, 0, cIn).getXorO().equals(p.thisPlayersPiece.getXorO())
@@ -187,6 +197,7 @@ public class UltimateTTTGame {
 			}
 
 		}
+
 		// check diagonals of small square
 		if ((theBoard.getPieceAt(rStart, cStart, 0, 0).getXorO().equals(p.thisPlayersPiece.getXorO())
 				&& theBoard.getPieceAt(rStart, cStart, 1, 1).getXorO().equals(p.thisPlayersPiece.getXorO())
@@ -196,15 +207,11 @@ public class UltimateTTTGame {
 						&& theBoard.getPieceAt(rStart, cStart, 0, 2).getXorO().equals(p.thisPlayersPiece.getXorO()))) {
 			return true;
 		}
+
 		return false;
 	}
 	
-	/**
-	 * Print board state and if an inner board was won or filled
-	 * @param previousMove - parameters of the previous move
-	 * @return previousMove - parameters of the previous move (will be updated to {-1,-1,-1,-1} if inner board was won or filled
-	 */
-	private int[] printBoard(int[] previousMove) {
+	public int[] printBoard(int[] previousMove) {
 		System.out.println("New board state: \n");
 		System.out.println(theBoard.toString());
 		if (previousMove[0] == -1) return previousMove;
@@ -227,12 +234,6 @@ public class UltimateTTTGame {
 		return previousMove;
 	}
 	
-	/**
-	 * Checks if inner TTT board was filled
-	 * @param r - row of inner board
-	 * @param c - col of inner board
-	 * @return boolean if inner board was filled or nto
-	 */
 	private boolean boardFilled(int r, int c) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {

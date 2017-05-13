@@ -30,8 +30,6 @@ public class UltimateTTTGame {
 	 */
 	public void playGame() {
 		printInstructions();
-		// NOTE: {-1,-1,-1,-1} MEANS THE PLAYER CAN MOVE ANYWHERE
-		// This happens on the first turn or if the inner board had already been won or filled
 		int[] moveRestrictions = {-1,-1,-1,-1};
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {

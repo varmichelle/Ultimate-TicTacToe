@@ -30,8 +30,6 @@ public class UltimateTTTGame {
 	 */
 	public void playGame() {
 		printInstructions();
-		// NOTE: {-1,-1,-1,-1} MEANS THE PLAYER CAN MOVE ANYWHERE
-		// This happens on the first turn or if the inner board had already been won or filled
 		int[] moveRestrictions = {-1,-1,-1,-1};
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
@@ -153,11 +151,13 @@ public class UltimateTTTGame {
 				return true;
 			}
 		}
+
 		// check diagonals of big squares
 		if ((checkWinnerSquare(p, 0, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 2, 2))
 				|| (checkWinnerSquare(p, 2, 0) && checkWinnerSquare(p, 1, 1) && checkWinnerSquare(p, 0, 2))) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -227,12 +227,6 @@ public class UltimateTTTGame {
 		return previousMove;
 	}
 	
-	/**
-	 * Checks if inner TTT board was filled
-	 * @param r - row of inner board
-	 * @param c - col of inner board
-	 * @return boolean if inner board was filled or nto
-	 */
 	private boolean boardFilled(int r, int c) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
