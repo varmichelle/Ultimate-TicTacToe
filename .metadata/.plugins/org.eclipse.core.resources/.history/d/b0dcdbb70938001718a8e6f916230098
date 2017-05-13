@@ -53,18 +53,10 @@ public class TicTacToeBoard {
 		return board[row][0].getXorO() + " " + board[row][1].getXorO() + " " + board[row][2].getXorO();
 	}
 	
-	/**
-	 * Get the winner of the board
-	 * @return winner (_ if no winner, X, or O)
-	 */
 	public String getWinner() {
 		return winner;
 	}
 	
-	/**
-	 * Set winner of the board
-	 * @param s - winner (X or O)
-	 */
 	public void setWinner(String s) {
 		winner = s;
 	}

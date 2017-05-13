@@ -38,33 +38,22 @@ public class TicTacToeBoard {
 	 * Sets piece at specified row and col
 	 * @param row - the row of the square to be set
 	 * @param column - the column of the square to be set
-	 * @param setTo - the game piece the square will be set to
+	 * @param setTo
+	 *            the game piece the square will be set to
 	 */
+
 	public void setPieceAt(int row, int column, GamePiece setTo) {
 		board[row][column] = setTo;
 	}
 	
-	/**
-	 * Get a row of the board in string format
-	 * @param row - row index number
-	 * @return row in string form
-	 */
 	public String getRow(int row) {
 		return board[row][0].getXorO() + " " + board[row][1].getXorO() + " " + board[row][2].getXorO();
 	}
 	
-	/**
-	 * Get the winner of the board
-	 * @return winner (_ if no winner, X, or O)
-	 */
 	public String getWinner() {
 		return winner;
 	}
 	
-	/**
-	 * Set winner of the board
-	 * @param s - winner (X or O)
-	 */
 	public void setWinner(String s) {
 		winner = s;
 	}

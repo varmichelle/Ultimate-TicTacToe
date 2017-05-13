@@ -61,10 +61,6 @@ public class TicTacToeBoard {
 		return winner;
 	}
 	
-	/**
-	 * Set winner of the board
-	 * @param s - winner (X or O)
-	 */
 	public void setWinner(String s) {
 		winner = s;
 	}
