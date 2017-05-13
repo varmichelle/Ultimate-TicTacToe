@@ -23,9 +23,10 @@ public class HumanPlayer extends Player {
 	}
 
 	/**
-	 * Make a move from scanner input
-	 * @param moveRestrictions - integer array of parameters of the previous move
-	 * @return move - integer array of parameters of the move just made
+	 * Allows a human player or an AI to make a move
+	 * based off of whether or not it is valid to make a move. (Implemented
+	 * version for human player)
+	 * 
 	 */
 	public int[] makeAMove(int[] moveRestrictions) {
 		input = new Scanner(System.in);

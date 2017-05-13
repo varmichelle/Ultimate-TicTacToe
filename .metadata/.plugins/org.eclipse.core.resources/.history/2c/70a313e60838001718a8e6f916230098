@@ -24,8 +24,7 @@ public class HumanPlayer extends Player {
 
 	/**
 	 * Make a move from scanner input
-	 * @param moveRestrictions - integer array of parameters of the previous move
-	 * @return move - integer array of parameters of the move just made
+	 * @param moveRestrictions - integer array of 
 	 */
 	public int[] makeAMove(int[] moveRestrictions) {
 		input = new Scanner(System.in);

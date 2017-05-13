@@ -6,7 +6,6 @@ import java.util.Scanner;
  * @period 1
  * 
  */
-
 public class HumanPlayer extends Player {
 	
 	protected Scanner input;
@@ -15,17 +14,20 @@ public class HumanPlayer extends Player {
 	 * Constructor that passes through the UltimateTicTacToeBoard object and the
 	 * GamePiece object to allow a human player to make a move on it.
 	 * 
-	 * @param b - board used to play the game
-	 * @param p - game piece used (x or o)
+	 * @param b
+	 *            - board used to play the game
+	 * @param p
+	 *            - game piece used (x or o)
 	 */
 	public HumanPlayer(UltimateTicTacToeBoard b, GamePiece p) {
 		super(b, p);
 	}
 
 	/**
-	 * Make a move from scanner input
-	 * @param moveRestrictions - integer array of parameters of the previous move
-	 * @return move - integer array of parameters of the move just made
+	 * This abstract void method allows a human player or an AI to make a move
+	 * based off of whether or not it is valid to make a move. (Implemented
+	 * version for human player)
+	 * 
 	 */
 	public int[] makeAMove(int[] moveRestrictions) {
 		input = new Scanner(System.in);
