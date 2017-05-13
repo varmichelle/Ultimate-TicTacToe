@@ -5,7 +5,10 @@
  * @author yugreta3411, Michelle Li 
  * period 1
  */
-public class TicTacToeBoard {
+
+import javafx.scene.layout.GridPane;
+
+public class TicTacToeBoard extends GridPane {
 
 	private GamePiece[][] board;
 	private String winner = "_";
@@ -20,8 +23,10 @@ public class TicTacToeBoard {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				board[i][j] = new GamePiece("_");
+				add(board[i][j].getButton(), i, j);
 			}
 		}
+		setStyle("-fx-border-color: white; -fx-border-width: 1; -fx-border-radius: 5");
 	}
 
 	/**
@@ -53,7 +58,7 @@ public class TicTacToeBoard {
 	 */
 
 	public void setPieceAt(int row, int column, GamePiece setTo) {
-		board[row][column] = setTo;
+		board[row][column].setXorO(setTo.getXorO());
 	}
 	
 	public String getRow(int row) {
@@ -66,6 +71,20 @@ public class TicTacToeBoard {
 	
 	public void setWinner(String s) {
 		winner = s;
+		if (winner.equals("X")) {
+			for (int r = 0; r < 3; r++) {
+				for (int c = 0; c < 3; c++) {
+					board[r][c].getButton().setStyle("-fx-border-color: white; -fx-border-width: 1; -fx-border-radius: 5;-fx-background-color: darkred;-fx-text-fill: white;");
+				}
+			}
+		}
+        else {
+        	for (int r = 0; r < 3; r++) {
+				for (int c = 0; c < 3; c++) {
+					board[r][c].getButton().setStyle("-fx-border-color: white; -fx-border-width: 1; -fx-border-radius: 5;-fx-background-color: royalblue;-fx-text-fill: white;");
+				}
+			}
+        }
 	}
 
 }

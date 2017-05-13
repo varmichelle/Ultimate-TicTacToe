@@ -6,7 +6,10 @@
  * @author yugreta3411, Michelle Li
  * period 1
  */
-public class UltimateTicTacToeBoard {
+
+import javafx.scene.layout.GridPane;
+
+public class UltimateTicTacToeBoard extends GridPane {
 
 	private TicTacToeBoard[][] board;
 
@@ -20,8 +23,11 @@ public class UltimateTicTacToeBoard {
 		for (int row = 0; row < 3; ++row) {
 			for (int col = 0; col < 3; ++col) {
 				board[row][col] = new TicTacToeBoard();
+				add(board[row][col], row, col);
 			}
 		}
+		setHgap(5);
+        setVgap(5);
 	}
 
 	/**
@@ -80,13 +86,14 @@ public class UltimateTicTacToeBoard {
 	}
 	
 	public String toString() {
-		String s = "    0 1 2   3 4 5   6 7 8\n\n";
-		for (int r = 0; r < 9; r++) {
-			s += r + "   " + getLine(r);
-			if (r % 3 == 2 && r != 8) s += "    ---------------------\n";
-		}
-		s += "\n";
-		return s;
+//		String s = "    0 1 2   3 4 5   6 7 8\n\n";
+//		for (int r = 0; r < 9; r++) {
+//			s += r + "   " + getLine(r);
+//			if (r % 3 == 2 && r != 8) s += "    ---------------------\n";
+//		}
+//		s += "\n";
+//		return s;
+		return "";
 	}
 
 }

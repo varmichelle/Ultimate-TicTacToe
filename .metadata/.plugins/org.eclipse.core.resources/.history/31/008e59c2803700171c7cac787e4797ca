@@ -1,0 +1,60 @@
+/**
+ * 
+ * @author Somya Bhatia, Michelle Li
+ * Period 1
+ *
+ */
+import javafx.scene.control.Button;
+
+public class GamePiece {
+
+	private Button button = new Button();
+	private final int SQUARE_LENGTH = 70;
+	private String XorO;
+
+	/**
+	 * constructor to pass in values for the two variables
+	 * 
+	 * @param exoh
+	 *            - either X or O
+	 */
+	public GamePiece(String exoh) {
+		XorO = exoh;
+		button.setMinSize(SQUARE_LENGTH, SQUARE_LENGTH);
+        button.setOnAction(e -> {
+            if (button.getText().isEmpty()) {
+                button.setText(XorO);
+                //button.setStyle(game.getCurrentPlayer().getStyle());
+                game.board().disable();
+                game.board().enable(position);
+            }
+        });
+	}
+
+	/**
+	 * setter method to set the value of the game piece
+	 * 
+	 * @param exoh
+	 *            - either X or O
+	 */
+	public void setXorO(String exoh) {
+		XorO = exoh;
+	}
+
+	/**
+	 * getter method to return either X or O
+	 * 
+	 * @return
+	 */
+	public String getXorO() {
+		return XorO;
+	}
+	
+	/**
+	 * toString method
+	 */
+	public String toString() {
+		return XorO;
+	}
+
+}
