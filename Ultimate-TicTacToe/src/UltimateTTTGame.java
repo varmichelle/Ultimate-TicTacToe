@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 /**
  * 
  * @author Adrienne Ly, Michelle Li
@@ -38,14 +40,14 @@ public class UltimateTTTGame {
 		int[] moveRestrictions = {-1,-1,-1,-1};
 		moveRestrictions = printBoard(moveRestrictions);
 		while (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
-			if (checkTie()) {
+			if (checkFull()) {
 				System.out.println("It was a tie!");
 				return;
 			}
 			moveRestrictions = facilitateMove(true, moveRestrictions);
 			moveRestrictions = printBoard(moveRestrictions);
 			if (!checkWinner(xPlayer) && !checkWinner(oPlayer)) {
-				if (checkTie()) {
+				if (checkFull()) {
 					System.out.println("It was a tie!");
 					return;
 				}
@@ -74,12 +76,14 @@ public class UltimateTTTGame {
 		System.out.println("==========================================================================================================================================================\n\n");
 	}
 
-	private boolean checkTie() {
-		for (int outerR = 0; outerR < 3; outerR++) {
-			for (int outerC = 0; outerC < 3; outerC++) {
-				for (int innerR = 0; innerR < 3; innerR++) {
-					for (int innerC = 0; innerC < 3; innerC++) {
-						if (theBoard.getTTTBoard(outerR, outerC).getPieceAt(innerR, innerC).getXorO() == "_") return false;
+	private boolean checkFull() {
+		Iterator boardIter = theBoard.iterator();
+		while (boardIter.hasNext()) {
+			for (int r = 0; r < 3; r++) {
+				for (int c = 0; c < 3; c++) {
+					if (((TicTacToeBoard) boardIter.next()).getPieceAt(r,c).getXorO().equals("_")) {
+						System.out.println("darn");
+						return false;
 					}
 				}
 			}

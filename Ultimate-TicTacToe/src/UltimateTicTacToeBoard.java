@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 /**
  * UltimateTicTacToeBoard class-Class that creates a 3x3 tic tac toe board where
  * each square is a tic tac toe board The class contains methods to set and get
@@ -6,7 +8,7 @@
  * @author yugreta3411, Michelle Li
  * period 1
  */
-public class UltimateTicTacToeBoard {
+public class UltimateTicTacToeBoard implements Iterable {
 
 	private TicTacToeBoard[][] board;
 
@@ -88,5 +90,25 @@ public class UltimateTicTacToeBoard {
 		s += "\n";
 		return s;
 	}
+	
+	@Override
+    public Iterator<TicTacToeBoard> iterator() {
+        Iterator<TicTacToeBoard> iter = new Iterator<TicTacToeBoard>() {
+
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < 9;
+            }
+
+            @Override
+            public TicTacToeBoard next() {
+                return board[currentIndex / 3][currentIndex++ % 3];
+            }
+
+        };
+        return iter;
+    }
 
 }
