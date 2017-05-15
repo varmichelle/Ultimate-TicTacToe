@@ -81,12 +81,8 @@ public class UltimateTTTGame {
 	private boolean checkTie() {
 		Iterator boardIter = theBoard.iterator();
 		while (boardIter.hasNext()) {
-			for (int r = 0; r < 3; r++) {
-				for (int c = 0; c < 3; c++) {
-					if (((TicTacToeBoard) boardIter.next()).getWinner().equals("_")) {
-						return false;
-					}
-				}
+			if (((TicTacToeBoard) boardIter.next()).getWinner().equals("_")) {
+				return false;
 			}
 		}
 		return true;
