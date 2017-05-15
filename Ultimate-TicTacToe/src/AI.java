@@ -1,14 +1,14 @@
-import java.util.*;
+import java.util.Random;
 
 /**
- * Class EasyAI extends Player superclass 
+ * Class AI extends Player superclass 
  * AI that makes random valid moves
  * @author yugreta3411, Michelle Li
  * @period 1
  * 
  */
 
-public class EasyAI extends Player {
+public class AI extends Player {
 
 	/**
 	 * EasyAI constructor - Constructor that uses the super constructor to
@@ -17,7 +17,7 @@ public class EasyAI extends Player {
 	 * @param b - ultimate tic tac toe board
 	 * @param p - the player's game piece
 	 */
-	public EasyAI(UltimateTicTacToeBoard b, GamePiece p) {
+	public AI(UltimateTicTacToeBoard b, GamePiece p) {
 		super(b, p);
 	}
 

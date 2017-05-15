@@ -6,6 +6,7 @@
  * Abstract Class Player - represents the two types of players in our game (human or AI)
  * 
  */
+
 public abstract class Player {
 
 	protected boolean isValid = false; // there is an empty space for a player to make another move
